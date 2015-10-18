@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+
+var map; function mapa() { var opts = {'center': new google.maps.LatLng(26.12295, -80.17122), 'zoom':11, 'mapTypeId': google.maps.MapTypeId.ROADMAP } map = new google.maps.Map(document.getElementById('mapdiv'),opts); google.maps.event.addListener(map,'click',function(event) { document.getElementById('latlongclicked').value = event.latLng.lat() + ', ' + event.latLng.lng() }) google.maps.event.addListener(map,'mousemove',function(event) { document.getElementById('latspan').innerHTML = event.latLng.lat() document.getElementById('lngspan').innerHTML = event.latLng.lng() document.getElementById('latlong').innerHTML = event.latLng.lat() + ', ' + event.latLng.lng() }); } 
+
+
+google.maps.event.addDomListener(window, 'load', mapa);
+</script>
+</head>
+
+<body>
+<div id="mapdiv" style="width:500px;height:380px;"></div>
+<div id="lngspan"></div>
+<div id="latspan"></div>
+</body>
+</html>
